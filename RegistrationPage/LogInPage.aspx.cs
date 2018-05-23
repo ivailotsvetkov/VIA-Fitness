@@ -21,5 +21,7 @@ public partial class LogInPage : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         wrongUser.Visible = true;
+        Session["username"] = textBoxUser.Text;
+        Response.Redirect("ProfilePage.aspx");
     }
 }
