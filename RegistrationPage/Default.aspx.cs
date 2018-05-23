@@ -35,4 +35,9 @@ public partial class _Default : System.Web.UI.Page
         txtConfirmPass.Text = "";
         txtEmail.Text = "";
     }
+
+    protected void btnLogIn_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("LogInPage.aspx");
+    }
 }
