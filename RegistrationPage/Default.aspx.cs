@@ -20,15 +20,17 @@ public partial class _Default : System.Web.UI.Page
     protected void btnRegister_Click(object sender, EventArgs e)
     {
         if (txtConfirmPass.Text == txtPass.Text)
+        {
             con.Open();
-        SqlCommand cmd = new SqlCommand("insert into RegistrationTable values (@Username, @Password, @Email, @Name)", con);
-        cmd.Parameters.AddWithValue("Username", txtUsername.Text);
-        cmd.Parameters.AddWithValue("Password", txtPass.Text);
-        cmd.Parameters.AddWithValue("Email", txtEmail.Text);
-        cmd.Parameters.AddWithValue("Name", txtName.Text);
-        cmd.ExecuteNonQuery();
-
-        Label6.Visible = true;
+            SqlCommand cmd = new SqlCommand("insert into RegistrationTable values (@Username, @Password, @Email, @Name)", con);
+            cmd.Parameters.AddWithValue("Username", txtUsername.Text);
+            cmd.Parameters.AddWithValue("Password", txtPass.Text);
+            cmd.Parameters.AddWithValue("Email", txtEmail.Text);
+            cmd.Parameters.AddWithValue("Name", txtName.Text);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            Label6.Visible = true;
+        }
         txtUsername.Text = "";
         txtPass.Text = "";
         txtName.Text = "";

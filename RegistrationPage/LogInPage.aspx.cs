@@ -21,8 +21,18 @@ public partial class LogInPage : System.Web.UI.Page
 
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void btnLogInMainPage_Click(object sender, EventArgs e)
     {
-        wrongUser.Visible = true;
+        con.Open();
+        SqlCommand cmd = new SqlCommand("Select * FROM RegistrationTable where username = '" + textBoxUser.Text +"' AND password = '" +txtPass.Text+"'" , con);
+        SqlDataReader dr = cmd.ExecuteReader();
+        if (dr.HasRows) {
+            Session["username"] = textBoxUser.Text;
+            Response.Redirect("ProfilePage.aspx");
+        }
+
+        else {
+            labelWrongUser.Visible = true;
+        }
     }
 }
