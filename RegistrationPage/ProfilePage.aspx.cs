@@ -37,7 +37,7 @@ public partial class ProfilePage : System.Web.UI.Page
     protected void btnRefresh_Click(object sender, EventArgs e)
     {
         con.Open();
-        SqlCommand cmd = new SqlCommand("Select Type, duration, calburned FROM WorkOut where username = '"+usernameLabel.Text+"'", con);
+        SqlCommand cmd = new SqlCommand("Select Type, duration, calburned FROM WorkOut where username = '" + usernameLabel.Text + "'", con);
         SqlDataReader dr = cmd.ExecuteReader();
         grid.DataSource = dr;
         grid.DataBind();

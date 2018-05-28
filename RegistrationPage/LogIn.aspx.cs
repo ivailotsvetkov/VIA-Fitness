@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class LogInPage : System.Web.UI.Page
+public partial class LogIn : System.Web.UI.Page
 {
     SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
     protected void Page_Load(object sender, EventArgs e)
@@ -17,21 +17,23 @@ public partial class LogInPage : System.Web.UI.Page
 
     protected void btnRegistration_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Default.aspx");
+        Response.Redirect("Registration.aspx");
 
     }
 
     protected void btnLogInMainPage_Click(object sender, EventArgs e)
     {
         con.Open();
-        SqlCommand cmd = new SqlCommand("Select * FROM RegistrationTable where username = '" + textBoxUser.Text +"' AND password = '" +txtPass.Text+"'" , con);
+        SqlCommand cmd = new SqlCommand("Select * FROM RegistrationTable where username = '" + textBoxUser.Text + "' AND password = '" + txtPass.Text + "'", con);
         SqlDataReader dr = cmd.ExecuteReader();
-        if (dr.HasRows) {
+        if (dr.HasRows)
+        {
             Session["username"] = textBoxUser.Text;
             Response.Redirect("ProfilePage.aspx");
         }
 
-        else {
+        else
+        {
             labelWrongUser.Visible = true;
         }
     }

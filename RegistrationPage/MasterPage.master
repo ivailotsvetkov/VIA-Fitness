@@ -1,7 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" runat="server">
     <head>
         <meta charset="utf-8">
         <title>SADAKA | Charity / Non-profit responsive Bootstrap HTML5 template</title>
@@ -71,8 +71,11 @@
 
 
     <img src="assets/top-banner.png" class="topbanner">
-
-   
+    <div>
+        <asp:ContentPlaceHolder ID="body" Runat="Server">
+        </asp:ContentPlaceHolder>
+    </div>
+  
 
     </body>
 </html>

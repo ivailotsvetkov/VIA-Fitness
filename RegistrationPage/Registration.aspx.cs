@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class _Default : System.Web.UI.Page
+public partial class Registration : System.Web.UI.Page
 {
     SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
     //hee
@@ -29,8 +29,10 @@ public partial class _Default : System.Web.UI.Page
             cmd.Parameters.AddWithValue("Name", txtName.Text);
             cmd.ExecuteNonQuery();
             con.Close();
-            Label6.Visible = true;
+            Response.Redirect("LogIn.aspx");
         }
+        else
+            Label6.Visible = true;
         txtUsername.Text = "";
         txtPass.Text = "";
         txtName.Text = "";
@@ -40,6 +42,6 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnLogIn_Click(object sender, EventArgs e)
     {
-        Response.Redirect("LogInPage.aspx");
+        Response.Redirect("LogIn.aspx");
     }
 }
