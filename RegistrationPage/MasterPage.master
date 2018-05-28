@@ -1,0 +1,78 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>SADAKA | Charity / Non-profit responsive Bootstrap HTML5 template</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Dosis:400,700' rel='stylesheet' type='text/css'>
+
+        <!-- Bootsrap -->
+        <link rel="stylesheet" href="assets/bootstrap.css">
+
+        <!-- Font awesome -->
+        <link rel="stylesheet" href="assets/font-awesome.min.css">
+
+        <!-- Template main Css -->
+        <link rel="stylesheet" href="assets/style.css">
+        
+
+    </head>
+
+    <body>
+
+
+    <header class="main-header">
+        
+    
+        <nav class="navbar navbar-static-top">
+            
+            <div class="navbar-main">
+              
+              <div class="container">
+
+
+
+                <div id="navbar" class="navbar-collapse collapse">
+                <div class="center">
+                  <ul class="nav navbar-nav">
+
+                    <li><a class="is-active" href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li class="has-child"><a href="#">CAUSES</a>
+
+                      <ul class="submenu">
+                         <li class="submenu-item"><a href="causes.html">Causes list </a></li>
+                         <li class="submenu-item"><a href="causes-single.html">Single cause </a></li>
+                         <li class="submenu-item"><a href="causes-single.html">Single cause </a></li>
+                         <li class="submenu-item"><a href="causes-single.html">Single cause </a></li>
+                      </ul>
+
+                    </li>
+                    <li><a href="gallery.html">GALLERY</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+
+                  </ul>
+</div>
+                </div> <!-- /#navbar -->
+
+              </div> <!-- /.container -->
+              
+            </div> <!-- /.navbar-main -->
+
+
+        </nav> 
+
+    </header> <!-- /. main-header -->
+
+
+    <img src="assets/top-banner.png" class="topbanner">
+
+   
+
+    </body>
+</html>
