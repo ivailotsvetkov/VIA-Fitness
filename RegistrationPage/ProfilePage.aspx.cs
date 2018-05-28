@@ -13,7 +13,28 @@ public partial class ProfilePage : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         usernameLabel.Text = Session["username"].ToString();
+        int totalTime1 = 0;
+        int totalCal1 = 0;
+        con.Open();
+        SqlCommand cmd = new SqlCommand("Select Type, duration, calburned FROM WorkOut where username = '" + usernameLabel.Text + "'", con);
+        SqlDataReader dr = cmd.ExecuteReader();
+        grid.DataSource = dr;
+        grid.DataBind();
+        con.Close();
+        con.Open();
+        SqlCommand cmd1 = new SqlCommand("Select duration, calburned FROM WorkOut where username = '" + usernameLabel.Text + "'", con);
+        SqlDataReader dr1 = cmd1.ExecuteReader();
+        while (dr1.Read())
+        {
+            totalTime1 += (int)dr1.GetValue(0);
+            totalCal1 += (int)dr1.GetValue(1);
+        }
+        con.Close();
+
+        totalCal.Text = " " + totalCal1;
+        totalTime.Text = " " + totalTime1;
     }
+
 
     protected void grid_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -36,11 +57,25 @@ public partial class ProfilePage : System.Web.UI.Page
 
     protected void btnRefresh_Click(object sender, EventArgs e)
     {
+        int totalTime1 = 0;
+        int totalCal1 = 0;
         con.Open();
         SqlCommand cmd = new SqlCommand("Select Type, duration, calburned FROM WorkOut where username = '" + usernameLabel.Text + "'", con);
         SqlDataReader dr = cmd.ExecuteReader();
         grid.DataSource = dr;
         grid.DataBind();
         con.Close();
+        con.Open();
+        SqlCommand cmd1 = new SqlCommand("Select duration, calburned FROM WorkOut where username = '" + usernameLabel.Text + "'", con);
+        SqlDataReader dr1 = cmd1.ExecuteReader();
+        while (dr1.Read())
+        {
+            totalTime1 += (int)dr1.GetValue(0); 
+            totalCal1 += (int)dr1.GetValue(1); 
+        }
+        con.Close();
+
+        totalCal.Text = " "+totalCal1;
+        totalTime.Text = " " + totalTime1;
     }
 }

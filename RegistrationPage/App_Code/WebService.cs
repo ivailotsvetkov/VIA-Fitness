@@ -28,7 +28,7 @@ public class WebService : System.Web.Services.WebService
         while (dr1.Read())
         {
 
-            temp += (String)dr1.GetValue(0) + "\n";
+            temp += (String)dr1.GetValue(0) + System.Environment.NewLine;
         }
         con.Close();
         return temp;

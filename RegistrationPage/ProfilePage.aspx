@@ -44,6 +44,14 @@
         </asp:GridView>
         <br />
         <br />
+        Summary:<br />
+        <br />
+        Time training:&nbsp;&nbsp;
+        <asp:Label ID="totalTime" runat="server" Text="Total Time"></asp:Label>
+        <br />
+        <br />
+        Cal burned:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="totalCal" runat="server" Text="Total Cal"></asp:Label>
         <br />
         <br />
         <br />
